@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="catClicker">
+<head>
+    <script type="text/javascript" src="js/lib/jquery/jquery.js"></script>
+    <script type="text/javascript" src="js/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="js/com/script.js"></script>
+
+</head>
+	<body>
+		<div ng-controller="catClickerController as controller">
+            <div class="cats-list">
+                <div ng-repeat="cat in controller.cats">
+                    <span ng-click="controller.selectCat(cat)">{{cat.name}} - {{cat.clicks}}</span>
+                </div>
+            </div>
+            <div ng-show="controller.selectedCat != null" class="selected-cat">
+                <img ng-src="{{controller.selectedCat.src}}" ng-click="controller.clickCat(controller.selectedCat)"> <br>
+                <span>Name = {{controller.selectedCat.name}} | Clicks = {{controller.selectedCat.clicks}} </span>
+            </div>
+        </div>
+	</body>
+</html>
